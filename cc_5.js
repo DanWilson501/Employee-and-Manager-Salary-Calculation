@@ -9,6 +9,10 @@ class Employee {
     annualSalary() {
         return this.salary * 12;
     }
+
+    employeeDetails() {
+        console.log(`Name: ${this.name}, Monthly Salary: ${this.salary}`);
+    }
 }
 
 class Manager extends Employee {
@@ -23,13 +27,23 @@ class Manager extends Employee {
         const bonus = baseAnnualSalary * this.bonusPercentage;
         return baseAnnualSalary + bonus;
     }
+
+    employeeDetails() {
+        super.employeeDetails();
+        console.log(`Department: ${this.department}`);
+    }
 }
 
+// Test Data 1 & 2
 const manager1 = new Manager('Bob Ross', 6600, 'Digital Marketing');
 const manager2 = new Manager('Debbie Little', 7205, 'Finance');
 
 console.log(`Manager 1`);
-console.log(`Name: ${manager1.name}, Monthly Salary: ${manager1.salary} Department: ${manager1.department}\n Annual Salary: ${manager1.annualSalary()}`);
+manager1.employeeDetails();
+console.log(`Annual Salary including Bonus: ${manager1.annualSalary()}`);
 
 console.log(`Manager 2`);
-console.log(`Name: ${manager2.name}, Monthly Salary: ${manager2.salary} Department: ${manager2.department}\n Annual Salary: ${manager2.annualSalary()}`);
+manager2.employeeDetails();
+console.log(`Annual Salary including Bonus: ${manager2.annualSalary()}`);
+
+// To display output above, open the html file in a browser and view through right click -> inspect -> console.
